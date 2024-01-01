@@ -1,3 +1,4 @@
+import 'package:business_card/booking.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,29 +16,35 @@ class MyApp extends StatelessWidget {
         drawer: Drawer(
           child: ListView(
             children: [
-              DrawerHeader(
-                child: Text('Drawer Header'),
+              const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
+                child: Text('Drawer Header'),
               ),
               ListTile(
-                title: Text('Item 1'),
+                title: const Text('For Bookings'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BookingsPage()));
                 },
               ),
               ListTile(
-                title: Text('Item 2'),
+                title: const Text('Item 2'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BookingsPage()));
                 },
               ),
             ],
           ),
         ),
         backgroundColor: Colors.teal,
-        body: SafeArea(
+        body: const SafeArea(
             child: Column(
           children: [
             CircleAvatar(
@@ -50,7 +57,7 @@ class MyApp extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(20.0),
                 child: Row(
                   children: [
                     Icon(
@@ -72,7 +79,7 @@ class MyApp extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(20.0),
                 child: Row(children: [
                   Icon(Icons.email, color: Colors.black),
                   SizedBox(

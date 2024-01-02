@@ -2,50 +2,40 @@ import 'package:business_card/booking.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp();
 
-  // This widget is the root of your application.
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          drawer: Drawer(
-            child: ListView(
-              children: [
-                const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: Text('Drawer Header'),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.white,
                 ),
-                ListTile(
-                  title: const Text('For Bookings'),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BookingsPage()));
-                  },
-                ),
-                ListTile(
-                  title: const Text('Item 2'),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BookingsPage()));
-                  },
-                ),
-              ],
-            ),
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: const Text('For Bookings'),
+                onTap: () {},
+              ),
+              ListTile(
+                title: const Text('Item 2'),
+                onTap: () {},
+              ),
+            ],
           ),
-          backgroundColor: Colors.teal,
-          body: const SafeArea(
-              child: Column(
+        ),
+        backgroundColor: Colors.teal,
+        body: const SafeArea(
+          child: Column(
             children: [
               CircleAvatar(
                 radius: 50.0,
@@ -80,22 +70,26 @@ class MyApp extends StatelessWidget {
                 color: Colors.white,
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Row(children: [
-                    Icon(Icons.email, color: Colors.black),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('demiladeogundipe@gmail.com'),
-                  ]),
+                  child: Row(
+                    children: [
+                      Icon(Icons.email, color: Colors.black),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text('demiladeogundipe@gmail.com'),
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
-          )),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            child: Icon(Icons.add),
-            backgroundColor: Colors.black,
-          )),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.black,
+          child: const Icon(Icons.add),
+        ),
+      ),
     );
   }
 }

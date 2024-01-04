@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       backgroundColor: Colors.teal,
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
           children: [
             CircleAvatar(
@@ -49,6 +54,8 @@ class HomePage extends StatelessWidget {
 }
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -64,13 +71,17 @@ class MyDrawer extends StatelessWidget {
             title: const Text('For Bookings'),
             onTap: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => BookingsPage()),
+                MaterialPageRoute(builder: (context) => const BookingsPage()),
               );
             },
           ),
           ListTile(
             title: const Text('Item 2'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => BookingsPage()),
+              );
+            },
           ),
         ],
       ),
@@ -79,13 +90,15 @@ class MyDrawer extends StatelessWidget {
 }
 
 class BookingsPage extends StatelessWidget {
+  const BookingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bookings Page'),
+        title: const Text('Bookings Page'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Bookings Content'),
       ),
     );
@@ -96,27 +109,27 @@ class MyCard extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const MyCard({required this.icon, required this.text});
+  const MyCard({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Row(
           children: [
             Icon(
               icon,
               color: Colors.black,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
             Text(
               text,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
             ),
           ],
         ),

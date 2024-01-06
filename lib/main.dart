@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
             ),
             Text('Ogundipe Emmanuel Oluwamurewa'),
             Text('Flutter Developer'),
+            Text("Super Front end Dev"),
             MyCard(
               icon: Icons.phone,
               text: '+234 708 335 0453',
